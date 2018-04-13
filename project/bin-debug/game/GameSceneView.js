@@ -18,13 +18,8 @@ var GameSceneView = (function (_super) {
     GameSceneView.prototype.initView = function () {
         this.showHome();
     };
-    GameSceneView.prototype.clear = function () {
-        while (this.numChildren) {
-            this.removeChildAt(0);
-        }
-    };
     GameSceneView.prototype.showHome = function () {
-        this.clear();
+        new Utils().clearPrevBitmap();
         var startView = new GameStartView();
         this.addChild(startView);
     };

@@ -12,6 +12,8 @@
 		"bin-debug/Main.js",
 		"bin-debug/Platform.js",
 		"bin-debug/game/GameSceneView.js",
+		"bin-debug/game/gameScene/GameMainView.js",
+		"bin-debug/game/gameScene/GameSceneOne.js",
 		"bin-debug/game/gameScene/GameStartView.js",
 		"bin-debug/utils/Const.js",
 		"bin-debug/utils/Utils.js"

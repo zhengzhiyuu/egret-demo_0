@@ -27,7 +27,7 @@ var GameStartView = (function (_super) {
         startBtn.x = startBtnX;
         startBtn.y = startBtnY;
         startBtn.touchEnabled = true;
-        Utils.touchBegin(startBtn, this.showGameHint);
+        Utils.touchBegin(startBtn, this.showGameMain.bind(this));
         var getMore = Utils.createBitMapByName('getmore_png');
         this.addChild(getMore);
         var getMoreBtnX = Const.SCENE_WIDTH / 2 - getMore.width / 2;
@@ -35,8 +35,10 @@ var GameStartView = (function (_super) {
         getMore.x = getMoreBtnX;
         getMore.y = getMoreBtnY;
     };
-    GameStartView.prototype.showGameHint = function () {
-        egret.log('game log');
+    GameStartView.prototype.showGameMain = function () {
+        new Utils().clearPrevBitmap();
+        var main = new GameMainView();
+        this.addChild(main);
     };
     return GameStartView;
 }(egret.Sprite));

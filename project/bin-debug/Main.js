@@ -152,7 +152,9 @@ var Main = (function (_super) {
      */
     Main.prototype.createGameScene = function () {
         var gameContainer = new GameSceneView();
-        this.addChild(gameContainer);
+        // this.addChild(gameContainer);
+        var a = new GameSceneOne();
+        this.addChild(a);
     };
     return Main;
 }(egret.DisplayObjectContainer));

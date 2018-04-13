@@ -17,7 +17,7 @@ class GameStartView extends egret.Sprite {
         startBtn.x = startBtnX;
         startBtn.y = startBtnY;
         startBtn.touchEnabled = true;
-        Utils.touchBegin(startBtn, this.showGameHint);
+        Utils.touchBegin(startBtn, this.showGameMain.bind(this));
 
         let getMore = Utils.createBitMapByName('getmore_png');
         this.addChild(getMore);
@@ -27,7 +27,9 @@ class GameStartView extends egret.Sprite {
         getMore.y = getMoreBtnY;
     }
 
-    private showGameHint(): void {
-        egret.log('game log');
+    private showGameMain(): void {
+        new Utils().clearPrevBitmap();
+        let main= new GameMainView();
+        this.addChild(main);
     }
 }

@@ -1,4 +1,5 @@
 class GameSceneView extends egret.Sprite {
+    public static _game: GameSceneView;
 
     public constructor() {
         super();
@@ -9,14 +10,8 @@ class GameSceneView extends egret.Sprite {
         this.showHome();
     }
 
-    private clear(): void {
-        while (this.numChildren) {
-            this.removeChildAt(0);
-        }
-    }
-
     public showHome(): void {
-        this.clear();
+        new Utils().clearPrevBitmap();
         let startView = new GameStartView();
         this.addChild(startView);
     }
