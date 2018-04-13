@@ -1,0 +1,33 @@
+var __reflect = (this && this.__reflect) || function (p, c, t) {
+    p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
+};
+var __extends = this && this.__extends || function __extends(t, e) { 
+ function r() { 
+ this.constructor = t;
+}
+for (var i in e) e.hasOwnProperty(i) && (t[i] = e[i]);
+r.prototype = e.prototype, t.prototype = new r();
+};
+var GameSceneView = (function (_super) {
+    __extends(GameSceneView, _super);
+    function GameSceneView() {
+        var _this = _super.call(this) || this;
+        _this.addEventListener(egret.Event.ADDED_TO_STAGE, _this.initView, _this);
+        return _this;
+    }
+    GameSceneView.prototype.initView = function () {
+        this.showHome();
+    };
+    GameSceneView.prototype.clear = function () {
+        while (this.numChildren) {
+            this.removeChildAt(0);
+        }
+    };
+    GameSceneView.prototype.showHome = function () {
+        this.clear();
+        var startView = new GameStartView();
+        this.addChild(startView);
+    };
+    return GameSceneView;
+}(egret.Sprite));
+__reflect(GameSceneView.prototype, "GameSceneView");
