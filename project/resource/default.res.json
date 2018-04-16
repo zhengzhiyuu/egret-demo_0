@@ -1,115 +1,30 @@
 {
 	"groups": [
 		{
-			"keys": "bg_jpg,egret_icon_png,description_json,load_bg_jpg,getmore_png,start_btn_png,gameinfo_1_jpg,gameinfo_2_jpg,gameinfo_3_jpg,gameinfo_4_jpg,gameOver1_jpg,gameOver2_jpg,gameOver3_jpg,gameOver4_jpg,gameOverbg_png,gameWin_jpg,gaming_bg_jpg,startGame_btn_png,hint_top_png,ready_png,go_png",
+			"keys": "description_json,test,test@atlas0_png",
 			"name": "preload"
 		}
 	],
 	"resources": [
-		{
-			"url": "assets/bg.jpg",
-			"type": "image",
-			"name": "bg_jpg"
-		},
-		{
-			"url": "assets/egret_icon.png",
-			"type": "image",
-			"name": "egret_icon_png"
-		},
 		{
 			"url": "config/description.json",
 			"type": "json",
 			"name": "description_json"
 		},
 		{
-			"url": "assets/load_bg.jpg",
+			"url": "assets/Test@atlas0.png",
 			"type": "image",
-			"name": "load_bg_jpg"
+			"name": "test@atlas0_png"
 		},
 		{
-			"url": "assets/gengduo.png",
-			"type": "image",
-			"name": "getmore_png"
+			"url": "assets/Test.fui",
+			"type": "bin",
+			"name": "test"
 		},
 		{
-			"url": "assets/start_btn.png",
-			"type": "image",
-			"name": "start_btn_png"
-		},
-		{
-			"url": "assets/gameinfo_1.jpg",
-			"type": "image",
-			"name": "gameinfo_1_jpg"
-		},
-		{
-			"url": "assets/gameinfo_2.jpg",
-			"type": "image",
-			"name": "gameinfo_2_jpg"
-		},
-		{
-			"url": "assets/gameinfo_3.jpg",
-			"type": "image",
-			"name": "gameinfo_3_jpg"
-		},
-		{
-			"url": "assets/gameinfo_4.jpg",
-			"type": "image",
-			"name": "gameinfo_4_jpg"
-		},
-		{
-			"url": "assets/gameOver1.jpg",
-			"type": "image",
-			"name": "gameOver1_jpg"
-		},
-		{
-			"url": "assets/gameOver2.jpg",
-			"type": "image",
-			"name": "gameOver2_jpg"
-		},
-		{
-			"url": "assets/gameOver3.jpg",
-			"type": "image",
-			"name": "gameOver3_jpg"
-		},
-		{
-			"url": "assets/gameOver4.jpg",
-			"type": "image",
-			"name": "gameOver4_jpg"
-		},
-		{
-			"url": "assets/gameOverbg.png",
-			"type": "image",
-			"name": "gameOverbg_png"
-		},
-		{
-			"url": "assets/gameWin.jpg",
-			"type": "image",
-			"name": "gameWin_jpg"
-		},
-		{
-			"url": "assets/gaming_bg.jpg",
-			"type": "image",
-			"name": "gaming_bg_jpg"
-		},
-		{
-			"url": "assets/startGame_btn.png",
-			"type": "image",
-			"name": "startGame_btn_png"
-		},
-		{
-			"url": "assets/hint_top.png",
-			"type": "image",
-			"name": "hint_top_png"
-		},
-		{
-			"url": "assets/ready.png",
-			"type": "image",
-			"name": "ready_png"
-		},
-		{
-			"url": "assets/go.png",
-			"type": "image",
-			"name": "go_png"
+			"url": "assets/Test@d5bj8.wav",
+			"type": "sound",
+			"name": "Test@d5bj8"
 		}
 	]
 }
