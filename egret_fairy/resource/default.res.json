@@ -1,0 +1,25 @@
+{
+	"groups": [
+		{
+			"keys": "description_json,test,test@atlas0_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"url": "config/description.json",
+			"type": "json",
+			"name": "description_json"
+		},
+		{
+			"url": "assets/Test@atlas0.png",
+			"type": "image",
+			"name": "test@atlas0_png"
+		},
+		{
+			"url": "assets/Test.fui",
+			"type": "bin",
+			"name": "test"
+		}
+	]
+}
