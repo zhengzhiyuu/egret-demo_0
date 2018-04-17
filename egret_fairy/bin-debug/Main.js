@@ -137,9 +137,8 @@ var Main = (function (_super) {
      * Create scene interface
      */
     Main.prototype.createGameScene = function () {
-        fairygui.UIPackage.addPackage("test");
         // fairygui.UIObjectFactory.setLoaderExtension(MyGLoader);
-        this.stage.addChild(fairygui.GRoot.inst.displayObject);
+        this.addChild(fairygui.GRoot.inst.displayObject);
         this.mainPanel = new MainPanel();
     };
     /**

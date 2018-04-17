@@ -14,10 +14,10 @@ class MainPanel {
     private _view: fairygui.GComponent;
 
     public constructor() {
-        // 添加包test   
+        // 添加egret里.fui的别名  
         fairygui.UIPackage.addPackage("test");
 
-        // 添加包下的clickBtn组件
+        // createObject(包名, 组件名)
         this._view = fairygui.UIPackage.createObject("test", "clickBtn").asCom;
         this._view.setSize(fairygui.GRoot.inst.width, fairygui.GRoot.inst.height);
         

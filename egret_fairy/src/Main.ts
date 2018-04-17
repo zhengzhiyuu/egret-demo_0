@@ -72,11 +72,10 @@ class Main extends eui.UILayer {
      * Create scene interface
      */
     private createGameScene() {
-        fairygui.UIPackage.addPackage("test");
 
         // fairygui.UIObjectFactory.setLoaderExtension(MyGLoader);
 
-        this.stage.addChild(fairygui.GRoot.inst.displayObject);
+        this.addChild(fairygui.GRoot.inst.displayObject);
 
         this.mainPanel = new MainPanel();
     }
