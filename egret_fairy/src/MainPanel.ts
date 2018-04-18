@@ -3,7 +3,9 @@ class MainPanel {
     private main2: fairygui.GComponent;
     private main3: fairygui.GComponent;
     private main4: fairygui.GComponent;
+    private main5: fairygui.GComponent;
     private list: fairygui.GList;
+    private showBag: boolean = false;
 
     public constructor() {
 
@@ -68,10 +70,45 @@ class MainPanel {
             timer.start();
         }, this)
 
+        // test 5   bag
+        fairygui.UIPackage.addPackage("Bag");
+        this.main5 = fairygui.UIPackage.createObject("Bag", "Main").asCom;
+        this.main5.setSize(fairygui.GRoot.inst.width, fairygui.GRoot.inst.height);
+
+        this.main5.getChild("bgBtn").asButton.addClickListener((): void => {
+            let win: fairygui.Window = new fairygui.Window();
+            win.contentPane = fairygui.UIPackage.createObject("Bag", "BgWindow").asCom;
+            if (!this.showBag) { win.show(); }
+            this.showBag = true;
+            win.contentPane.setXY(fairygui.GRoot.inst.width / 2 - win.contentPane.width / 2, 50);
+            win.closeButton.addClickListener((): void => {
+                this.showBag = false;
+            }, this)
+            let winList: fairygui.GList = win.contentPane.getChild("n1").asList;
+            winList.setVirtual();
+            winList.itemRenderer = (index: number, obj: fairygui.GObject): void => {
+                let btn: fairygui.GButton = obj.asButton;
+                btn.icon = fairygui.UIPackage.getItemURL("Bag", `i${index}`);
+                btn.title = `i${index}`;
+            }
+            let listLen: number = 12;
+            winList.numItems = listLen;
+
+            let itmeView: fairygui.GButton = this.main5.getChild("itmeView").asButton
+
+            for (let i: number = 0; i < listLen; i++) {
+                let btn = winList.getChildAt(i).asButton;
+                btn.addClickListener((): void => {
+                    itmeView.icon = btn.icon;
+                    itmeView.text = btn.title;
+                }, this)
+            }
+        }, this);
+
 
 
         // add fairy stage
-        fairygui.GRoot.inst.addChild(this.main4);
+        fairygui.GRoot.inst.addChild(this.main5);
     }
 
     private doSpecialEffect(): void {

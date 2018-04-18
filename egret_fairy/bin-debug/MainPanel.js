@@ -4,6 +4,7 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 var MainPanel = (function () {
     function MainPanel() {
         var _this = this;
+        this.showBag = false;
         // text 1   fairy transition
         fairygui.UIPackage.addPackage("test");
         this.main = fairygui.UIPackage.createObject("test", "Main").asCom;
@@ -52,8 +53,44 @@ var MainPanel = (function () {
             }, _this);
             timer.start();
         }, this);
+        // test 5   bag
+        fairygui.UIPackage.addPackage("Bag");
+        this.main5 = fairygui.UIPackage.createObject("Bag", "Main").asCom;
+        this.main5.setSize(fairygui.GRoot.inst.width, fairygui.GRoot.inst.height);
+        this.main5.getChild("bgBtn").asButton.addClickListener(function () {
+            var win = new fairygui.Window();
+            win.contentPane = fairygui.UIPackage.createObject("Bag", "BgWindow").asCom;
+            if (!_this.showBag) {
+                win.show();
+            }
+            _this.showBag = true;
+            win.contentPane.setXY(fairygui.GRoot.inst.width / 2 - win.contentPane.width / 2, 50);
+            win.closeButton.addClickListener(function () {
+                _this.showBag = false;
+            }, _this);
+            var winList = win.contentPane.getChild("n1").asList;
+            winList.setVirtual();
+            winList.itemRenderer = function (index, obj) {
+                var btn = obj.asButton;
+                btn.icon = fairygui.UIPackage.getItemURL("Bag", "i" + index);
+                btn.title = "i" + index;
+            };
+            var listLen = 12;
+            winList.numItems = listLen;
+            var itmeView = _this.main5.getChild("itmeView").asButton;
+            var _loop_1 = function (i) {
+                var btn = winList.getChildAt(i).asButton;
+                btn.addClickListener(function () {
+                    itmeView.icon = btn.icon;
+                    itmeView.text = btn.title;
+                }, _this);
+            };
+            for (var i = 0; i < listLen; i++) {
+                _loop_1(i);
+            }
+        }, this);
         // add fairy stage
-        fairygui.GRoot.inst.addChild(this.main4);
+        fairygui.GRoot.inst.addChild(this.main5);
     }
     MainPanel.prototype.doSpecialEffect = function () {
         //change the scale according to the distance to the middle

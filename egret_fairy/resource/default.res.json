@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,test,test@atlas0_png,test2,test2@atlas0_png,LoopList,LoopList@atlas0_png,ProgressBar@atlas0_png,ProgressBar",
+			"keys": "description_json,test,test@atlas0_png,test2,test2@atlas0_png,LoopList,LoopList@atlas0_png,ProgressBar@atlas0_png,ProgressBar,Bag@atlas0_png,Bag",
 			"name": "preload"
 		}
 	],
@@ -50,6 +50,16 @@
 			"url": "assets/ProgressBar.fui",
 			"type": "bin",
 			"name": "ProgressBar"
+		},
+		{
+			"url": "assets/Bag@atlas0.png",
+			"type": "image",
+			"name": "Bag@atlas0_png"
+		},
+		{
+			"url": "assets/Bag.fui",
+			"type": "bin",
+			"name": "Bag"
 		}
 	]
 }
