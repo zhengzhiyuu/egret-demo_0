@@ -11,6 +11,12 @@ var Utils = (function () {
             fairygui.GRoot.inst.addChild(sceneName['getView']());
         }
     };
+    Utils.createBitmapByName = function (name) {
+        var result = new egret.Bitmap();
+        var texture = RES.getRes(name);
+        result.texture = texture;
+        return result;
+    };
     return Utils;
 }());
 __reflect(Utils.prototype, "Utils");

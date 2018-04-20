@@ -26,9 +26,9 @@ module TinyHeart {
         private _view: fairygui.GComponent;
         private _fish: fairygui.GButton;
         private _anys: Array<fairygui.GGraph> = [];
-        private _fruits: Array<fairygui.GImage> = [];
-        public static main: eui.UILayer;
         private anyY: number[] = [];
+        private fruit
+        public static main: eui.UILayer;
 
         public constructor() {
             fairygui.UIPackage.addPackage("TinyHeart");
@@ -38,34 +38,14 @@ module TinyHeart {
 
             // let shape: TinyHeart.Ane = new TinyHeart.Ane();
             // TinyHeart.GameScene.main.addChild(shape);
+            this.initFish();            
             this.initAny();
             this.initFruit();
 
-            let timer: egret.Timer = new egret.Timer(500, 0);
-            timer.addEventListener(egret.TimerEvent.TIMER, this.fruitMonitor, this);
+            let timer: egret.Timer = new egret.Timer(300, 0);
+            timer.addEventListener(egret.TimerEvent.TIMER, this.initFruit, this);
             timer.start();
 
-
-            this._fish = this._view.getChild("fish").asButton;
-            // this._fish.sortingOrder = 5;
-            this._fish.draggable = true;
-            this._fish.dragBounds = new egret.Rectangle(0, 0, fairygui.GRoot.inst.width - 15, fairygui.GRoot.inst.height);
-            let fishStartX: number = 0;
-            let fishMovex: number = 0;
-            this._fish.addEventListener(fairygui.DragEvent.DRAG_START, (ev): void => {
-                fishStartX = ev.stageX;
-            }, this)
-            this._fish.addEventListener(fairygui.DragEvent.DRAG_MOVING, (ev): void => {
-                fishMovex = ev.stageX;
-                if (fishStartX > fishMovex) {
-                    console.log('left')
-                } else {
-                    console.log('right')
-                }
-            }, this)
-            this._fish.addEventListener(fairygui.DragEvent.DRAG_END, (): void => {
-                console.log('end')
-            }, this)
         }
 
         public getView(): fairygui.GComponent {
@@ -88,44 +68,90 @@ module TinyHeart {
                 this._view.addChild(this._anys[i]);
             }
         }
-
         private initFruit(): void {
-            let fruinNumber: number = 50;
-            for (let i = 0; i < fruinNumber; i++) {
-                let fruit: fairygui.GImage = fairygui.UIPackage.createObject("TinyHeart", "fruit").asImage;
-                fruit.setSize(16, 16);
-                fruit.setPivot(0.5, 0.5);
-                fruit.setScale(0, 0);
-                fruit.x = i * 16 + Math.random() * 20;
-                fruit.y = this.anyY[i]
-                this._fruits.push(fruit);
+            // fairy
+            let fruit: fairygui.GImage = fairygui.UIPackage.createObject("TinyHeart", "fruit").asImage;
+            let index: number = Math.floor(Math.random() * 50);
+            fruit.setSize(16, 16);
+            fruit.setPivot(0.5, 0.5);
+            fruit.setScale(0, 0);
+            fruit.x = index * 16 + Math.random() * 20;
+            fruit.y = this.anyY[index];
+
+            let self = this;
+            let fruitTween: egret.Tween = egret.Tween.get(fruit, {
+                onChange: function () {
+                    if (fruit.scaleX === 1) {
+                        let fruitTween2: egret.Tween = egret.Tween.get(fruit, {
+                            onChange: function () {
+                                if (fruit.y < -16) { self._view.removeChild(fruit); }
+                            },
+                            onChangeObj: fruit
+                        }).to({ y: -16 }, Math.random() * 5000 + 2000)
+                    }
+                },
+                onChangeObj: fruit
+            }).to({ scaleX: 1, scaleY: 1 }, 1000)
+            // this._view.addChild(fruit);
+
+            // egret
+            let fruit2 = Utils.createBitmapByName("fruit");
+            fruit2.width = 16; fruit2.height = 16;
+            fruit2.scaleX = 0; fruit2.scaleY = 0;
+            fruit2.anchorOffsetX = fruit2.width / 2;
+            fruit2.anchorOffsetY = fruit2.height / 2;
+            fruit2.x = index * 16 + Math.random() * 20;
+            fruit2.y = this.anyY[index];
+            TinyHeart.GameScene.main.addChild(fruit2);
+
+            let fruitTween2: egret.Tween = egret.Tween.get(fruit2, {
+                onChange: function () {
+                    if (fruit2.scaleX === 1) {
+                        let fruitTween2: egret.Tween = egret.Tween.get(fruit2, {
+                            onChange: function () {
+                                if (fruit2.y < -16) { TinyHeart.GameScene.main.removeChild(fruit2); }
+                                console.log(self._fish.x)
+                            },
+                            onChangeObj: fruit2
+                        }).to({ y: -16 }, Math.random() * 5000 + 2000)
+                    }
+                },
+                onChangeObj: fruit2
+            }).to({ scaleX: 1, scaleY: 1 }, 1000)
+
+            let rec1 = new egret.Rectangle(fruit2.x, fruit2.y, fruit2.width, fruit2.height);
+            let rec2 = new egret.Rectangle(this._fish.x, this._fish.x, this._fish.width, this._fish.height);
+            let isHit:boolean = rec1.intersects(rec2);
+            if(isHit){
+                console.log('is hit')
             }
+        }
+
+        private initFish(): void {
+            this._fish = this._view.getChild("fish").asButton;
+            // this._fish.sortingOrder = 5;
+            this._fish.draggable = true;
+            this._fish.dragBounds = new egret.Rectangle(0, 0, fairygui.GRoot.inst.width - 15, fairygui.GRoot.inst.height);
+            let fishStartX: number = 0;
+            let fishMovex: number = 0;
+            this._fish.addEventListener(fairygui.DragEvent.DRAG_START, (ev): void => {
+                fishStartX = ev.stageX;
+            }, this)
+            this._fish.addEventListener(fairygui.DragEvent.DRAG_MOVING, (ev): void => {
+                fishMovex = ev.stageX;
+                // if (fishStartX > fishMovex) {
+                //     console.log('left')
+                // } else {
+                //     console.log('right')
+                // }
+            }, this)
+            this._fish.addEventListener(fairygui.DragEvent.DRAG_END, (): void => {
+                console.log('end')
+            }, this)
         }
 
 
         private fruitMonitor(): void {
-            let self = this;
-            for (let i = 0; i < this._fruits.length; i++) {
-                let fruit = this._fruits.splice(Math.floor(Math.random() * this._fruits.length - 1), 1)[0];
-                let fruitTween: egret.Tween = egret.Tween.get(fruit, {
-                    onChange: function () {
-                        if (fruit.scaleX === 1) {
-                            let fruitTween2: egret.Tween = egret.Tween.get(fruit, {
-                                onChange: function () {
-                                    if (fruit.y < 16 && self._fruits.length === 0) {
-                                        console.log(1)
-                                        return
-                                    }
-                                },
-                                onChangeObj: fruit
-                            }).to({ y: -16 }, Math.random() * 5000 + 2000)
-                        }
-                    },
-                    onChangeObj: fruit
-                }).to({ scaleX: 1, scaleY: 1 }, 1000)
-                this._view.addChild(fruit);
-                console.log(this._fruits[1].y)
-            }
         }
     }
 
