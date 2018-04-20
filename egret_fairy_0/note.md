@@ -1,4 +1,5 @@
 # egret和fairyGui
+* ## 推荐纹理图集分割软件 BigShear
 * ## 新建egret工程文档，修改createGameScene函数
 
 ```ts
