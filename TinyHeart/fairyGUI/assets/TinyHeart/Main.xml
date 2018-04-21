@@ -3,9 +3,13 @@
   <displayList>
     <image id="n0_joef" name="bg" src="joef1" xy="0,0" size="1136,640">
       <relation target="" sidePair="width-width,height-height"/>
+      <relation target="" sidePair="center-center%"/>
     </image>
     <component id="n7_joef" name="fish" src="joefm" xy="434,313" pivot="0.7,0.5">
       <relation target="n0_joef" sidePair="left-center%,top-middle%"/>
     </component>
+    <text id="n8_dt3f" name="txt" xy="570,9" size="17,27" fontSize="20" color="#ffffff" text="0">
+      <relation target="n0_joef" sidePair="left-center%,top-top%"/>
+    </text>
   </displayList>
 </component>
