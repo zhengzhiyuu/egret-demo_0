@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="G:\egret-demo_0\TinyHeart\tinyHeart_android\app\build\intermediates\exploded-aar\egret\jars\libs\egretNativeAndroid.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="bdb03afd6ccbb98f137add324ae6aedd6d1aabb5">
+        <dex dex="G:\egret-demo_0\TinyHeart\tinyHeart_android\app\build\intermediates\pre-dexed\debug\egretNativeAndroid_9ab30f0bdb44b5279c1f4c7098874da1862fbe83.jar" />
+    </item>
+
+</items>

@@ -30,6 +30,7 @@ var TinyHeart;
     __reflect(PlayGame.prototype, "TinyHeart.PlayGame");
     var GameScene = (function () {
         function GameScene() {
+            this.fishX = [];
             this._anys = [];
             this.anyY = [];
             fairygui.UIPackage.addPackage("TinyHeart");
@@ -93,43 +94,225 @@ var TinyHeart;
                 },
                 onChangeObj: fruit
             }).to({ scaleX: 1, scaleY: 1 }, 1000);
+            var count = 0;
+            var enemyTime = 3;
             var timer = new egret.Timer(10, 0);
             timer.addEventListener(egret.TimerEvent.TIMER, function () {
-                var rec1 = new egret.Rectangle(fruit.x, fruit.y, fruit.width, fruit.height);
-                var rec2 = new egret.Rectangle(self._fish.x, self._fish.y, self._fish.width, self._fish.height);
-                var hit = rec1.intersects(rec2);
+                count += 1;
+                // this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", `bigEat0`);
+                if (count >= enemyTime * 100) {
+                    _this.initBlue();
+                    count = 0;
+                }
+                var recFruit = new egret.Rectangle(fruit.x, fruit.y, fruit.width, fruit.height);
+                var recFish = new egret.Rectangle(self._fish.x, self._fish.y, self._fish.width, self._fish.height);
+                var hit = recFruit.intersects(recFish);
                 if (fruit.y <= 5) {
                     timer.stop();
                 }
                 var number = parseFloat(_this.gameTxt.text);
                 if (hit) {
                     fruit.visible = false;
+                    _this._fish.getChild("eye").asButton.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEye1");
+                    if (number < 50) {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEat0");
+                    }
+                    else if (number < 100) {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEat1");
+                    }
+                    else if (number < 500) {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEat2");
+                    }
+                    else if (number < 1000) {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEat3");
+                    }
+                    else if (number < 2000) {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEat4");
+                    }
+                    else if (number < 5000) {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEat5");
+                    }
+                    else if (number < 8000) {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEat6");
+                    }
+                    else if (number < 10000) {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEat7");
+                    }
+                    else {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEat7");
+                    }
+                    var timer2 = new egret.Timer(100, 1);
+                    timer2.addEventListener(egret.TimerEvent.TIMER, function () {
+                        _this._fish.getChild("eye").asButton.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEye0");
+                        if (number < 50) {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwim0");
+                        }
+                        else if (number < 100) {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwim1");
+                        }
+                        else if (number < 500) {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwim2");
+                        }
+                        else if (number < 1000) {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwim3");
+                        }
+                        else if (number < 2000) {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwim4");
+                        }
+                        else if (number < 5000) {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwim5");
+                        }
+                        else if (number < 8000) {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwim6");
+                        }
+                        else if (number < 10000) {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwim7");
+                        }
+                        else {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwim7");
+                        }
+                    }, _this);
                     timer.stop();
+                    timer2.start();
                     _this.gameTxt.text = "" + (number += 10);
                 }
             }, this);
             timer.start();
         };
+        GameScene.prototype.initBlue = function () {
+            var _this = this;
+            var index = Math.floor(Math.random() * 50);
+            var self = this;
+            var blue = Utils.createBitmapByName("blue");
+            blue.width = 16;
+            blue.height = 16;
+            blue.scaleX = 0;
+            blue.scaleY = 0;
+            blue.anchorOffsetX = blue.width / 2;
+            blue.anchorOffsetY = blue.height / 2;
+            blue.x = index * 16 + Math.random() * 20;
+            blue.y = this.anyY[index];
+            TinyHeart.GameScene.main.addChild(blue);
+            var blueTween = egret.Tween.get(blue, {
+                onChange: function () {
+                    if (blue.scaleX === 1) {
+                        var blueTween2 = egret.Tween.get(blue, {
+                            onChange: function () {
+                                if (blue.y <= 0) {
+                                    TinyHeart.GameScene.main.removeChild(blue);
+                                }
+                            },
+                            onChangeObj: blue
+                        }).to({ y: 0 }, Math.random() * 5000 + 2000);
+                    }
+                },
+                onChangeObj: blue
+            }).to({ scaleX: 1, scaleY: 1 }, 1000);
+            var timer = new egret.Timer(10, 0);
+            timer.addEventListener(egret.TimerEvent.TIMER, function () {
+                var recBlue = new egret.Rectangle(blue.x, blue.y, blue.width, blue.height);
+                var recFish = new egret.Rectangle(self._fish.x, self._fish.y, self._fish.width, self._fish.height);
+                var hit = recBlue.intersects(recFish);
+                if (blue.y <= 5) {
+                    timer.stop();
+                }
+                var number = parseFloat(_this.gameTxt.text);
+                if (hit) {
+                    blue.visible = false;
+                    _this._fish.getChild("eye").asButton.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEye1");
+                    if (number < 50) {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEatBlue0");
+                    }
+                    else if (number < 100) {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEatBlue1");
+                    }
+                    else if (number < 500) {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEatBlue2");
+                    }
+                    else if (number < 1000) {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEatBlue3");
+                    }
+                    else if (number < 2000) {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEatBlue4");
+                    }
+                    else if (number < 5000) {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEatBlue5");
+                    }
+                    else if (number < 8000) {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEatBlue6");
+                    }
+                    else if (number < 10000) {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEatBlue7");
+                    }
+                    else {
+                        _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEatBlue7");
+                    }
+                    var timer2 = new egret.Timer(100, 1);
+                    timer2.addEventListener(egret.TimerEvent.TIMER, function () {
+                        _this._fish.getChild("eye").asButton.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEye0");
+                        if (number < 50) {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwimBlue0");
+                        }
+                        else if (number < 100) {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwimBlue1");
+                        }
+                        else if (number < 500) {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwimBlue2");
+                        }
+                        else if (number < 1000) {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwimBlue3");
+                        }
+                        else if (number < 2000) {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwimBlue4");
+                        }
+                        else if (number < 5000) {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwimBlue5");
+                        }
+                        else if (number < 8000) {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwimBlue6");
+                        }
+                        else if (number < 10000) {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwimBlue7");
+                        }
+                        else {
+                            _this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwimBlue7");
+                        }
+                    }, _this);
+                    timer.stop();
+                    timer2.start();
+                    _this.gameTxt.text = "" + (number -= 50);
+                }
+            }, this);
+            timer.start();
+        };
         GameScene.prototype.initFish = function () {
+            var _this = this;
             this._fish = this._view.getChild("fish").asButton;
             // this._fish.sortingOrder = 5;
+            this._fish.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigSwim0");
+            this._fish.getChild("eye").asButton.icon = fairygui.UIPackage.getItemURL("TinyHeart", "bigEye0");
             this._fish.draggable = true;
             this._fish.dragBounds = new egret.Rectangle(0, 0, fairygui.GRoot.inst.width - 15, fairygui.GRoot.inst.height);
-            var fishStartX = 0;
-            var fishMovex = 0;
-            this._fish.addEventListener(fairygui.DragEvent.DRAG_START, function (ev) {
-                fishStartX = ev.stageX;
-            }, this);
+            var timer = new egret.Timer(200, 1);
             this._fish.addEventListener(fairygui.DragEvent.DRAG_MOVING, function (ev) {
-                fishMovex = ev.stageX;
-                // if (fishStartX > fishMovex) {
-                //     console.log('left')
-                // } else {
-                //     console.log('right')
-                // }
-            }, this);
-            this._fish.addEventListener(fairygui.DragEvent.DRAG_END, function () {
-                console.log('end');
+                _this.fishX.push(ev.stageX);
+                var len = _this.fishX.length;
+                if (len > 100) {
+                    _this.fishX.splice(0, 50);
+                }
+                timer.addEventListener(egret.TimerEvent.TIMER, function () {
+                    if (len > 2) {
+                        var oldX = _this.fishX[len - 2];
+                        var newX = _this.fishX[len - 1];
+                        if (newX < oldX) {
+                            _this._fish.scaleX = 1;
+                        }
+                        else {
+                            _this._fish.scaleX = -1;
+                        }
+                    }
+                }, _this);
+                timer.start();
             }, this);
         };
         GameScene.prototype.fruitMonitor = function () {

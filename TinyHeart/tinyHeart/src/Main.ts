@@ -103,9 +103,7 @@ class Main extends eui.UILayer {
         this.addChild(fairygui.GRoot.inst.displayObject);
 
         let play: TinyHeart.PlayGame = new TinyHeart.PlayGame()
-        // Utils.enterScene(play);
-        let a = new TinyHeart.GameScene()
-        Utils.enterScene(a)
+        Utils.enterScene(play);
     }
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。

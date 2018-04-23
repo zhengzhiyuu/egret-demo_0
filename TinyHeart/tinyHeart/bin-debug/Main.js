@@ -168,9 +168,7 @@ var Main = (function (_super) {
     Main.prototype.createGameScene = function () {
         this.addChild(fairygui.GRoot.inst.displayObject);
         var play = new TinyHeart.PlayGame();
-        // Utils.enterScene(play);
-        var a = new TinyHeart.GameScene();
-        Utils.enterScene(a);
+        Utils.enterScene(play);
     };
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
