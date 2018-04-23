@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1136,640">
+  <displayList>
+    <image id="n0_joef" name="n0" src="joefo" xy="0,0" size="1136,640">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n1_jza9" name="n1" src="jza9z" xy="541,400" size="50,50">
+      <relation target="" sidePair="center-center%,middle-middle"/>
+    </image>
+  </displayList>
+</component>

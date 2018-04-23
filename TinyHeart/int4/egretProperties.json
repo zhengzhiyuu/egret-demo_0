@@ -1,0 +1,26 @@
+{
+	"native": {
+		"path_ignore": [],
+		"android_as_path": "tiny_as_test"
+	},
+	"publish": {
+		"web": 0,
+		"native": 1,
+		"path": "bin-release"
+	},
+	"egret_version": "4.1.0",
+	"modules": [
+		{
+			"name": "egret"
+		},
+		{
+			"name": "eui"
+		},
+		{
+			"name": "res"
+		},
+		{
+			"name": "tween"
+		}
+	]
+}

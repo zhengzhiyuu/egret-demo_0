@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="wozmmqvc" jpegQuality="80" compressPNG="true">
+  <resources>
+    <component id="joef0" name="Main.xml" path="/" exported="true"/>
+    <image id="joef1" name="background.jpg" path="/" exported="true"/>
+    <movieclip id="joef2" name="TailMove.jta" path="/Tail/"/>
+    <image id="joef3" name="bigSwim0.png" path="/" exported="true"/>
+    <image id="joef4" name="bigEye0.png" path="/" exported="true"/>
+    <image id="joef5" name="bigSwim5.png" path="/BIgSwim/" exported="true"/>
+    <image id="joef6" name="bigSwim6.png" path="/BIgSwim/" exported="true"/>
+    <image id="joef7" name="bigSwim7.png" path="/BIgSwim/" exported="true"/>
+    <image id="joef8" name="bigSwimBlue0.png" path="/BIgSwim/" exported="true"/>
+    <image id="joef9" name="bigSwimBlue1.png" path="/BIgSwim/" exported="true"/>
+    <image id="joefa" name="bigSwimBlue2.png" path="/BIgSwim/" exported="true"/>
+    <image id="joefb" name="bigSwimBlue3.png" path="/BIgSwim/" exported="true"/>
+    <image id="joefc" name="bigSwimBlue4.png" path="/BIgSwim/" exported="true"/>
+    <image id="joefd" name="bigSwimBlue5.png" path="/BIgSwim/" exported="true"/>
+    <image id="joefe" name="bigSwimBlue6.png" path="/BIgSwim/" exported="true"/>
+    <image id="joeff" name="bigSwimBlue7.png" path="/BIgSwim/" exported="true"/>
+    <image id="joefg" name="bigSwim0.png" path="/BIgSwim/" exported="true"/>
+    <image id="joefh" name="bigSwim1.png" path="/BIgSwim/" exported="true"/>
+    <image id="joefi" name="bigSwim2.png" path="/BIgSwim/" exported="true"/>
+    <image id="joefj" name="bigSwim3.png" path="/BIgSwim/" exported="true"/>
+    <image id="joefk" name="bigSwim4.png" path="/BIgSwim/" exported="true"/>
+    <component id="joefl" name="Button1.xml" path="/BIgSwim/" exported="true"/>
+    <component id="joefm" name="fish.xml" path="/"/>
+    <component id="joefn" name="Play.xml" path="/" exported="true"/>
+    <image id="joefo" name="cover.png" path="/" exported="true"/>
+    <image id="oe2op" name="bigEat0.png" path="/bigEat/" exported="true"/>
+    <image id="jza9r" name="bigEat1.png" path="/bigEat/" exported="true"/>
+    <image id="jza9s" name="bigEat2.png" path="/bigEat/" exported="true"/>
+    <image id="jza9t" name="bigEat3.png" path="/bigEat/" exported="true"/>
+    <image id="jza9u" name="bigEat4.png" path="/bigEat/" exported="true"/>
+    <image id="jza9v" name="bigEat5.png" path="/bigEat/" exported="true"/>
+    <image id="jza9w" name="bigEat6.png" path="/bigEat/" exported="true"/>
+    <image id="jza9x" name="bigEat7.png" path="/bigEat/" exported="true"/>
+    <image id="jza9z" name="play.png" path="/"/>
+    <image id="jza910" name="bigEatBlue0.png" path="/bigEat/" exported="true"/>
+    <image id="jza911" name="bigEatBlue1.png" path="/bigEat/" exported="true"/>
+    <image id="jza912" name="bigEatBlue2.png" path="/bigEat/" exported="true"/>
+    <image id="jza913" name="bigEatBlue3.png" path="/bigEat/" exported="true"/>
+    <image id="jza914" name="bigEatBlue4.png" path="/bigEat/" exported="true"/>
+    <image id="jza915" name="bigEatBlue5.png" path="/bigEat/" exported="true"/>
+    <image id="jza916" name="bigEatBlue6.png" path="/bigEat/" exported="true"/>
+    <image id="jza917" name="bigEatBlue7.png" path="/bigEat/" exported="true"/>
+    <image id="jza918" name="play.png" path="/bigEat/" exported="true"/>
+    <image id="jza919" name="bigEye1.png" path="/" exported="true"/>
+    <component id="jza91a" name="eye.xml" path="/"/>
+  </resources>
+  <publish name="TinyHeart"/>
+</packageDescription>
