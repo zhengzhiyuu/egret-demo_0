@@ -40,6 +40,8 @@ module TinyHeart {
 
             // let shape: TinyHeart.Ane = new TinyHeart.Ane();
             // TinyHeart.GameScene.main.addChild(shape);
+            let leftBtn = this.initBtn(GameScene.main.width - 100, GameScene.main.height - 80, "left");
+            let rightBtn = this.initBtn(GameScene.main.width - 50, GameScene.main.height - 80, "right");
             this.initFish();
             this.initAny();
             this.initFruit();
@@ -49,10 +51,50 @@ module TinyHeart {
             timer.start();
 
             this.gameTxt = this._view.getChild('txt').asTextField;
+            // GameScene.main.addChild(new Joystick())
         }
 
         public getView(): fairygui.GComponent {
             return this._view;
+        }
+
+        private initBtn(x: number = 0, y: number = 0, direction: string = "up"): void {
+            let point = Utils.createBitmapByName("point");
+            point.width = 40;
+            point.height = 50;
+            point.x = x;
+            point.y = y;
+            point.anchorOffsetX = point.width / 2;
+            point.anchorOffsetY = point.height / 2;
+            let self = this;
+            point.touchEnabled = true;
+            switch (direction) {
+                case "left":
+                    point.rotation = -90;
+                    point.addEventListener(egret.TouchEvent.TOUCH_BEGIN, (): void => {
+                        console.log("left")
+                    }, this)
+                    break;
+                case "right":
+                    point.rotation = 90;
+                    point.addEventListener(egret.TouchEvent.TOUCH_BEGIN, (): void => {
+                        console.log("right")
+                    }, this)
+                    break;
+                case "up":
+                    point.rotation = 0;
+                    point.addEventListener(egret.TouchEvent.TOUCH_BEGIN, (): void => {
+                        console.log("up")
+                    }, this)
+                    break;
+                case "down":
+                    point.rotation = 180;
+                    point.addEventListener(egret.TouchEvent.TOUCH_BEGIN, (): void => {
+                        console.log("down")
+                    }, this)
+                    break;
+            }
+            GameScene.main.addChild(point);
         }
 
         private initAny(): void {
@@ -278,17 +320,67 @@ module TinyHeart {
         }
     }
 
-    export class Ane extends egret.Shape {
+    class Joystick extends egret.DisplayObjectContainer {
+        private shape: egret.Shape = new egret.Shape();
+        private touchArea: egret.Shape = new egret.Shape();
+        private point: egret.Bitmap = Utils.createBitmapByName('point');
 
         public constructor() {
             super();
-            this.drawAny();
+            this.width = 200;
+            this.height = 200;
+            this.initTouchArea();
+            this.drawJoystick();
         }
 
-        private drawAny(): void {
-            this.graphics.beginFill(0x84157b);
-            this.graphics.drawRect(0, 0, 50, 50);
-            this.graphics.endFill();
+        private initTouchArea(): void {
+
+            this.touchArea.graphics.beginFill(0xffffff);
+            this.touchArea.graphics.drawRect(0, 0, 200, 200);
+            this.touchArea.graphics.endFill();
+            this.touchArea.alpha = 0;
+            this.touchArea.y = GameScene.main.height - 200;
+            this.addChild(this.touchArea);
+
+            this.touchArea.touchEnabled = true;
+            this.touchArea.addEventListener(egret.TouchEvent.TOUCH_BEGIN, (): void => {
+                this.initPoint();
+            }, this)
+            this.touchArea.addEventListener(egret.TouchEvent.TOUCH_MOVE, (ev: egret.TouchEvent): void => {
+                let rad: number = Math.atan2(ev.stageY, ev.stageX) * 180 / Math.PI;
+                console.log(rad);
+                this.point.rotation = rad;
+            }, this)
+            this.touchArea.addEventListener(egret.TouchEvent.TOUCH_END, (): void => {
+                this.removePoint();
+            }, this)
+        }
+
+        private drawJoystick(): void {
+
+            this.shape.graphics.beginFill(0xdd4d4d);
+            this.shape.graphics.drawCircle(0, 0, 15);
+            this.shape.x = 115;
+            this.shape.y = GameScene.main.height - 85;
+            this.shape.anchorOffsetX = 15;
+            this.shape.anchorOffsetY = 15;
+            this.shape.graphics.endFill();
+            this.addChild(this.shape);
+        }
+
+        private initPoint(): void {
+
+            this.addChild(this.point);
+            this.point.width = this.shape.width * 1.5;
+            this.point.height = this.shape.height * 1.5;
+            this.point.anchorOffsetX = this.shape.width * 1.5;
+            this.point.anchorOffsetY = this.shape.width * 1.5;
+            this.point.x = this.shape.x + 7;
+            this.point.y = this.shape.y - 15;
+        }
+
+        private removePoint(): void {
+            this.removeChild(this.point);
         }
     }
 }

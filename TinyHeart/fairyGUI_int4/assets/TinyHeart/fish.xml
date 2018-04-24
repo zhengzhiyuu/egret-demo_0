@@ -4,7 +4,6 @@
   <displayList>
     <loader id="n4_jza9" name="icon" xy="0,0" size="50,55"/>
     <component id="n5_jza9" name="eye" src="jza91a" xy="19,22"/>
-    <movieclip id="n7_rr41" name="n7" src="joef2" xy="38,6"/>
   </displayList>
   <Button/>
 </component>

@@ -11,6 +11,7 @@ var game_file_list = [
 	"libs/fairygui/fairygui.js",
 	"libs/rawinflate/rawinflate.min.js",
 	"bin-debug/AssetAdapter.js",
+	"bin-debug/JoystickModule.js",
 	"bin-debug/LoadingUI.js",
 	"bin-debug/Main.js",
 	"bin-debug/MainPlane.js",

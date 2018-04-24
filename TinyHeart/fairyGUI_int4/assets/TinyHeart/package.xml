@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<packageDescription id="wozmmqvc" jpegQuality="80" compressPNG="true">
+<packageDescription id="wozmmqvc" jpegQuality="210" compressPNG="true">
   <resources>
     <component id="joef0" name="Main.xml" path="/" exported="true"/>
     <image id="joef1" name="background.jpg" path="/" exported="true"/>
@@ -46,6 +46,9 @@
     <image id="jza918" name="play.png" path="/bigEat/" exported="true"/>
     <image id="jza919" name="bigEye1.png" path="/" exported="true"/>
     <component id="jza91a" name="eye.xml" path="/"/>
+    <image id="khrq1c" name="0.png" path="/Joystick/"/>
+    <image id="khrq1d" name="1.png" path="/Joystick/"/>
+    <component id="khrq1f" name="Joystick.xml" path="/Joystick/"/>
   </resources>
   <publish name="TinyHeart"/>
 </packageDescription>
