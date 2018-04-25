@@ -136,7 +136,6 @@ var Main = (function (_super) {
      */
     Main.prototype.startCreateScene = function () {
         this.addChild(fairygui.GRoot.inst.displayObject);
-        var sky = this.createBitmapByName("bg_jpg");
         var playGame = new TinyHeart.PlayGame();
         Utils.enterScene(playGame);
     };

@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,fruit,TinyHeart@atlas0,TinyHeart,blue,point,joystick@atlas0,Joystick",
+			"keys": "description_json,fruit,TinyHeart@atlas0,TinyHeart,blue,point,bigTail0,big,bigEye0,bigEye1,bigSwim1,bigSwim2,bigSwim3,bigSwim4,bigSwim6,bigSwim7,bigSwimBlue0,bigSwimBlue1,bigSwimBlue2,bigSwimBlue3,bigSwimBlue4,bigSwimBlue5,bigSwimBlue6,bigSwimBlue7,bigSwim0,bigEat4,bigEat5,bigEat6,bigEat7,bigEatBlue0,bigEatBlue1,bigEatBlue2,bigEatBlue3,bigEatBlue4,bigEatBlue5,bigEatBlue6,bigEatBlue7,bigEat0,bigEat1_png,bigEat2,bigEat3,bigSwim5,fishTill_png,fishTill_json",
 			"name": "preload"
 		}
 	],
@@ -37,14 +37,194 @@
 			"name": "point"
 		},
 		{
-			"url": "assets/joystick@atlas0.png",
+			"url": "assets/bigTail0.png",
 			"type": "image",
-			"name": "joystick@atlas0"
+			"name": "bigTail0"
 		},
 		{
-			"url": "assets/joystick.fui",
-			"type": "bin",
-			"name": "Joystick"
+			"url": "assets/big.png",
+			"type": "image",
+			"name": "big"
+		},
+		{
+			"url": "assets/bigEye0.png",
+			"type": "image",
+			"name": "bigEye0"
+		},
+		{
+			"url": "assets/bigEye1.png",
+			"type": "image",
+			"name": "bigEye1"
+		},
+		{
+			"url": "assets/bigSwim1.png",
+			"type": "image",
+			"name": "bigSwim1"
+		},
+		{
+			"url": "assets/bigSwim2.png",
+			"type": "image",
+			"name": "bigSwim2"
+		},
+		{
+			"url": "assets/bigSwim3.png",
+			"type": "image",
+			"name": "bigSwim3"
+		},
+		{
+			"url": "assets/bigSwim4.png",
+			"type": "image",
+			"name": "bigSwim4"
+		},
+		{
+			"url": "assets/bigSwim6.png",
+			"type": "image",
+			"name": "bigSwim6"
+		},
+		{
+			"url": "assets/bigSwim7.png",
+			"type": "image",
+			"name": "bigSwim7"
+		},
+		{
+			"url": "assets/bigSwimBlue0.png",
+			"type": "image",
+			"name": "bigSwimBlue0"
+		},
+		{
+			"url": "assets/bigSwimBlue1.png",
+			"type": "image",
+			"name": "bigSwimBlue1"
+		},
+		{
+			"url": "assets/bigSwimBlue2.png",
+			"type": "image",
+			"name": "bigSwimBlue2"
+		},
+		{
+			"url": "assets/bigSwimBlue3.png",
+			"type": "image",
+			"name": "bigSwimBlue3"
+		},
+		{
+			"url": "assets/bigSwimBlue4.png",
+			"type": "image",
+			"name": "bigSwimBlue4"
+		},
+		{
+			"url": "assets/bigSwimBlue5.png",
+			"type": "image",
+			"name": "bigSwimBlue5"
+		},
+		{
+			"url": "assets/bigSwimBlue6.png",
+			"type": "image",
+			"name": "bigSwimBlue6"
+		},
+		{
+			"url": "assets/bigSwimBlue7.png",
+			"type": "image",
+			"name": "bigSwimBlue7"
+		},
+		{
+			"url": "assets/bigSwim0.png",
+			"type": "image",
+			"name": "bigSwim0"
+		},
+		{
+			"url": "assets/bigEat4.png",
+			"type": "image",
+			"name": "bigEat4"
+		},
+		{
+			"url": "assets/bigEat5.png",
+			"type": "image",
+			"name": "bigEat5"
+		},
+		{
+			"url": "assets/bigEat6.png",
+			"type": "image",
+			"name": "bigEat6"
+		},
+		{
+			"url": "assets/bigEat7.png",
+			"type": "image",
+			"name": "bigEat7"
+		},
+		{
+			"url": "assets/bigEatBlue0.png",
+			"type": "image",
+			"name": "bigEatBlue0"
+		},
+		{
+			"url": "assets/bigEatBlue1.png",
+			"type": "image",
+			"name": "bigEatBlue1"
+		},
+		{
+			"url": "assets/bigEatBlue2.png",
+			"type": "image",
+			"name": "bigEatBlue2"
+		},
+		{
+			"url": "assets/bigEatBlue3.png",
+			"type": "image",
+			"name": "bigEatBlue3"
+		},
+		{
+			"url": "assets/bigEatBlue4.png",
+			"type": "image",
+			"name": "bigEatBlue4"
+		},
+		{
+			"url": "assets/bigEatBlue5.png",
+			"type": "image",
+			"name": "bigEatBlue5"
+		},
+		{
+			"url": "assets/bigEatBlue6.png",
+			"type": "image",
+			"name": "bigEatBlue6"
+		},
+		{
+			"url": "assets/bigEatBlue7.png",
+			"type": "image",
+			"name": "bigEatBlue7"
+		},
+		{
+			"url": "assets/bigEat0.png",
+			"type": "image",
+			"name": "bigEat0"
+		},
+		{
+			"url": "assets/bigEat1.png",
+			"type": "image",
+			"name": "bigEat1_png"
+		},
+		{
+			"url": "assets/bigEat2.png",
+			"type": "image",
+			"name": "bigEat2"
+		},
+		{
+			"url": "assets/bigEat3.png",
+			"type": "image",
+			"name": "bigEat3"
+		},
+		{
+			"url": "assets/bigSwim5.png",
+			"type": "image",
+			"name": "bigSwim5"
+		},
+		{
+			"name": "fishTill_png",
+			"type": "image",
+			"url": "assets/fishTill.png"
+		},
+		{
+			"name": "fishTill_json",
+			"type": "json",
+			"url": "assets/fishTill.json"
 		}
 	]
 }

@@ -130,11 +130,9 @@ class Main extends eui.UILayer {
      * Create scene interface
      */
     protected startCreateScene(): void {
-        this.addChild(fairygui.GRoot.inst.displayObject);        
-        let sky = this.createBitmapByName("bg_jpg");
+        this.addChild(fairygui.GRoot.inst.displayObject);
         let playGame: TinyHeart.PlayGame = new TinyHeart.PlayGame();
         Utils.enterScene(playGame);
-
 
     }
     /**

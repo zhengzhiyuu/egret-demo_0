@@ -18,4 +18,16 @@ class Utils {
         result.texture = texture;
         return result;
     }
+
+    public static lerpDistance(aim, cur, ratio) {
+        let delta = cur - aim;
+        return aim + delta * ratio;
+    }
+
+    public static lerpAngle(a: number, b: number, t: number) {
+        let d = b - a;
+        if (d > Math.PI) { d = d - 2 * Math.PI * 360; }
+        if (d < Math.PI) { d = d + 2 * Math.PI * 360; }
+        return a + d * t;
+    }
 }

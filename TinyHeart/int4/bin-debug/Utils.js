@@ -17,6 +17,20 @@ var Utils = (function () {
         result.texture = texture;
         return result;
     };
+    Utils.lerpDistance = function (aim, cur, ratio) {
+        var delta = cur - aim;
+        return aim + delta * ratio;
+    };
+    Utils.lerpAngle = function (a, b, t) {
+        var d = b - a;
+        if (d > Math.PI) {
+            d = d - 2 * Math.PI * 360;
+        }
+        if (d < Math.PI) {
+            d = d + 2 * Math.PI * 360;
+        }
+        return a + d * t;
+    };
     return Utils;
 }());
 __reflect(Utils.prototype, "Utils");
