@@ -6,6 +6,7 @@
 		"js/assetsmanager.min.js",
 		"js/tween.min.js",
 		"js/promise.min.js",
+		"js/game.min.js",
 		"js/fairygui.min.js"
 	],
 	"game": [

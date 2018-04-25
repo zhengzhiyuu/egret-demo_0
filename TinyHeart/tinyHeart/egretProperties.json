@@ -31,6 +31,9 @@
       "name": "promise"
     },
     {
+      "name": "game"
+    },
+    {
       "name": "rawinflate",
       "path": "./libs/rawinflate"
     },

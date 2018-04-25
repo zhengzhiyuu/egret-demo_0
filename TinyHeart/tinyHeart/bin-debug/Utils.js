@@ -17,6 +17,47 @@ var Utils = (function () {
         result.texture = texture;
         return result;
     };
+    Utils.lerpDistance = function (aim, cur, ratio) {
+        var delta = cur - aim;
+        return aim + delta * ratio;
+    };
+    Utils.lerpAngle = function (a, b, t) {
+        var d = b - a;
+        if (d > Math.PI) {
+            d = d - 2 * Math.PI * 360;
+        }
+        if (d < Math.PI) {
+            d = d + 2 * Math.PI * 360;
+        }
+        return a + d * t;
+    };
+    Utils.getAngle = function (px, py, mx, my) {
+        var x = Math.abs(px - mx);
+        var y = Math.abs(py - my);
+        var z = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+        var cos = y / z;
+        var radina = Math.acos(cos); //用反三角函数求弧度
+        var angle = Math.floor(180 / (Math.PI / radina)); //将弧度转换成角度
+        if (mx > px && my > py) {
+            angle = 180 - angle;
+        }
+        if (mx == px && my > py) {
+            angle = 180;
+        }
+        if (mx > px && my == py) {
+            angle = 90;
+        }
+        if (mx < px && my > py) {
+            angle = 180 + angle;
+        }
+        if (mx < px && my == py) {
+            angle = 270;
+        }
+        if (mx < px && my < py) {
+            angle = 360 - angle;
+        }
+        return angle;
+    };
     return Utils;
 }());
 __reflect(Utils.prototype, "Utils");
